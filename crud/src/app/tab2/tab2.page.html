@@ -24,11 +24,17 @@
         <ion-label>{{produto.nome}} {{produto.fornecedor}}</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
+        <div id="right">
+          <ion-button type="submit" (click)="remove(produto.id)">
+            Excluir
+            <ion-icon slot="end" name="trash-outline"></ion-icon>
+          </ion-button>
+        </div>
         <ion-avatar slot="start">
           <img src="/assets/image/avatar.png" alt="">
-        </ion-avatar>
-        <ion-item>
-          <ion-label>{{produto.quantidade}}</ion-label>
+        </ion-avatar>        
+        <ion-item class="producto">
+          <ion-label>{{produto.quantidade}}</ion-label>          
         </ion-item>
         <ion-item>
           <ion-label>{{produto.valorCompra}}</ion-label>
@@ -61,7 +67,6 @@
           <ion-label>{{produto.localidade}}</ion-label>
         </ion-item>
       </div>
-    </ion-accordion>
-  </ion-accordion-group>
-
+    </ion-accordion>    
+  </ion-accordion-group>  
 </ion-content>

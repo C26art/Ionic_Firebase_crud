@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Produto } from '../models/produto.model';
@@ -14,6 +14,8 @@ import { ProdutoService } from '../services/produto.service';
 export class Tab2Page {
   produtos!: Observable<Produto[]>;
 
+  @Input() produto!: Produto;
+
   constructor(private firebaseService: FirebaseService,
     private router: Router, private produtoService: ProdutoService,
     private correiosService: CorreiosService,) {
@@ -22,6 +24,10 @@ export class Tab2Page {
 
   newProduto() {
     this.router.navigateByUrl('/tabs/tab1')
+  }
+
+  remove(id:string): void {
+    this.firebaseService.delete(id);
   }
 
 }
