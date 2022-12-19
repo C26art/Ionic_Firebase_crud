@@ -9,6 +9,7 @@ import { Produto } from '../models/produto.model';
 })
 export class FirebaseService {
 
+
   constructor(private firestore: Firestore) { }
 
   save(produto: Produto): Promise<void> {

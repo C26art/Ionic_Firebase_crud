@@ -30,4 +30,8 @@ export class Tab2Page {
     this.firebaseService.delete(id);
   }
 
+  edit(id:string) {
+   this.router.navigate(['/tabs/tab4', id]);   
+  }
+
 }
