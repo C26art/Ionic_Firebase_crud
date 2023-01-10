@@ -22,6 +22,6 @@ import { ProdutoService } from '../services/produto.service';
     Tab4PageRoutingModule
   ],
   declarations: [Tab4Page],
-  providers: [ProdutoService, FirebaseService, CorreiosService]
+  providers: [ProdutoService, FirebaseService, CorreiosService]           
 })
 export class Tab4PageModule {}

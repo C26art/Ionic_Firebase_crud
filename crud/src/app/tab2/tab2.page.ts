@@ -26,12 +26,10 @@ export class Tab2Page {
     this.router.navigateByUrl('/tabs/tab1')
   }
 
-  remove(id:string): void {
-    this.firebaseService.delete(id);
+  editProduto(id:string) {
+    this.router.navigateByUrl(`/tabs/details/${id}`);
   }
 
-  edit(id:string) {
-   this.router.navigate(['/tabs/tab4', id]);   
-  }
+  
 
 }

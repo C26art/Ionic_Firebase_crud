@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-title>
-      Novo Cadastro
+      Details Cadastro
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,11 +11,12 @@
   <img src="/assets/image/avatar.png" alt="">
  </ion-thumbnail>
  <ion-row class="photo-wrapper">
-  <ion-button fill="clear">Add Photo</ion-button>
+  <ion-button fill="clear">Update Photo</ion-button>
 </ion-row>
   <form [formGroup]="contactFormGroup"
   #contactFormGroupDirective="ngForm"
-  (ngSubmit)="createProduto(contactFormGroup.value)">
+  (ngSubmit)="editProduto(contactFormGroup.value)"
+  *ngIf="contactFormGroup">
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Nome:</ion-label>
@@ -71,8 +72,8 @@
               clearInput="true"
               required
             ></ion-input>
-          </ion-item>  
-          
+          </ion-item>
+
           <ion-item>
             <ion-label position="stacked">Razão Social:</ion-label>
             <ion-input
@@ -138,9 +139,10 @@
             </ion-item>
           <ion-item lines="none">
             <ion-buttons>
-              <ion-button type="submit" color="primary">Salvar</ion-button>
+              <ion-button type="submit" color="primary">Update</ion-button>
+              <ion-button type="submit" color="danger" (click)="delete()">Delete</ion-button>
             </ion-buttons>
            </ion-item>
     </ion-list>
-  </form>  
+  </form>
 </ion-content>
