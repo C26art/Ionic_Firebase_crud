@@ -13,10 +13,9 @@
  <ion-row class="photo-wrapper">
   <ion-button fill="clear">Update Photo</ion-button>
 </ion-row>
-  <form [formGroup]="contactFormGroup"
+  <form [formGroup]="contactFormGroup" *ngIf="contactFormGroup"
   #contactFormGroupDirective="ngForm"
-  (ngSubmit)="editProduto(contactFormGroup.value)"
-  *ngIf="contactFormGroup">
+  (ngSubmit)="editProduto(contactFormGroup.value)">
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Nome:</ion-label>
@@ -140,7 +139,7 @@
           <ion-item lines="none">
             <ion-buttons>
               <ion-button type="submit" color="primary">Update</ion-button>
-              <ion-button type="submit" color="danger" (click)="delete()">Delete</ion-button>
+              <ion-button type="submit" color="danger" (click)="deleteProduto()">Delete</ion-button>
             </ion-buttons>
            </ion-item>
     </ion-list>

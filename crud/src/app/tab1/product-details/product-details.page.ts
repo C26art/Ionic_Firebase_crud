@@ -37,20 +37,20 @@ export class ProductDetailsPage implements OnInit {
         this.produto = data;
 
         this.contactFormGroup = new FormGroup({
-          'nome': new FormControl('this.produto.nome', Validators.required),
-          'quantidade': new FormControl('this.produto.quantidade', Validators.required),
-          'valorCompra': new FormControl('this.produto.valorCompra', Validators.required),
-          'porcentagem': new FormControl('this.produto.porcentagem', Validators.required),
-          'valorVenda': new FormControl('this.produto.valorVenda', Validators.required),
-          'fornecedor': new FormControl('this.produto.fornecedor', Validators.required),
-          'razaoSocial': new FormControl('this.produto.razaoSocial', Validators.required),
-          'cnpj': new FormControl('this.produto.nome', Validators.required),
-          'telefone': new FormControl('this.produto.telefone', Validators.required),
-          'endereco': new FormControl('this.produto.endereco', Validators.required),
-          'cep': new FormControl('this.produto.cep', Validators.required),
-          'logradouro': new FormControl('this.produto.logradouro', Validators.required),
-          'bairro': new FormControl('this.produto.bairro', Validators.required),
-          'localidade': new FormControl('this.produto.localidade', Validators.required),
+          'nome': new FormControl(this.produto.nome, Validators.required),
+          'quantidade': new FormControl(this.produto.quantidade, Validators.required),
+          'valorCompra': new FormControl(this.produto.valorCompra, Validators.required),
+          'porcentagem': new FormControl(this.produto.porcentagem, Validators.required),
+          'valorVenda': new FormControl(this.produto.valorVenda, Validators.required),
+          'fornecedor': new FormControl(this.produto.fornecedor, Validators.required),
+          'razaoSocial': new FormControl(this.produto.razaoSocial, Validators.required),
+          'cnpj': new FormControl(this.produto.cnpj, Validators.required),
+          'telefone': new FormControl(this.produto.telefone, Validators.required),
+          'endereco': new FormControl(this.produto.endereco, Validators.required),
+          'cep': new FormControl(this.produto.cep, Validators.required),
+          'logradouro': new FormControl(this.produto.logradouro, Validators.required),
+          'bairro': new FormControl(this.produto.bairro, Validators.required),
+          'localidade': new FormControl(this.produto.localidade, Validators.required),
           });
 
           //this.contactFormGroup.valueChanges.subscribe( values => {
@@ -59,10 +59,9 @@ export class ProductDetailsPage implements OnInit {
       }
     },
     error: (error) => console.error(`Error on get product data. Error: ${error}`)
-  });
+    });
+  }
 
-
-}
 editProduto(values:any) {
   let updateProduto: Produto = { id: this.produto.id, ...values };
   this.firebaseService.update(updateProduto)
@@ -71,7 +70,7 @@ editProduto(values:any) {
   )
   .catch(
     err => console.error(err)
-  )
+  );
 
   this.contactFormGroupDirective.reset();
 }
@@ -122,7 +121,10 @@ calc(): void {
     });
   }
 
-  delete(){
-
+  deleteProduto() {
+    this.firebaseService
+      .delete(this.produto.id)
+      .then(() => this.router.navigateByUrl('/tabs/tab2'))
+      .catch((err) => console.error(err));
   }
 }

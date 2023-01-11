@@ -28,8 +28,6 @@ export class Tab2Page {
 
   editProduto(id:string) {
     this.router.navigateByUrl(`/tabs/details/${id}`);
+
   }
-
-  
-
 }
